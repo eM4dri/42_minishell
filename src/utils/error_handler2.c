@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 18:17:46 by emadriga          #+#    #+#             */
-/*   Updated: 2022/01/31 15:29:11 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:30:52 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,8 +168,8 @@ static void	easter_egg(int elephants)
 		ramdon_colors(i % 2);
 	}
 	execve_sleep(sleep_argv);
-	megafree(&sleep_argv);
-	megafree(&emojis);
+	array_str_free(&sleep_argv);
+	array_str_free(&emojis);
 }
 
 int	max_pipes_exceeded(char **tokens)

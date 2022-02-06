@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 11:08:30 by emadriga          #+#    #+#             */
-/*   Updated: 2022/01/28 19:28:22 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:30:52 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ static void	add_expanded_splited_tokens(char *str_expanded, t_p	*process)
 			if (process->type == TEXT)
 				process->status = g_var.current_status;
 			else if (process->type == COMMAND)
-				process->pathname = new_getpath(split[i]);
+				process->pathname = get_path(split[i]);
 		}
 		lst_str_add_back(&process->args, ft_strdup(split[i]));
 		i++;
 	}
 	free(str_expanded);
-	megafree(&split);
+	array_str_free(&split);
 }
 
 /**
@@ -99,7 +99,7 @@ static void	add_exec_info_to_process(const char *token, t_p *process)
 			if (process->type == TEXT)
 				process->status = g_var.current_status;
 			else if (process->type == COMMAND)
-				process->pathname = new_getpath(str);
+				process->pathname = get_path(str);
 			lst_str_add_back(&process->args, str);
 		}
 	}

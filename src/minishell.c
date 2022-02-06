@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:18:08 by jvacaris          #+#    #+#             */
-/*   Updated: 2022/02/05 10:57:05 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:30:52 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ static void	processline(char *line_read)
 					run_processes(&processes, count_pipes(token_list) + 1);
 			}
 			lst_process_free(&processes);
-			megafree(&token_list);
+			array_str_free(&token_list);
 		}
 	}
 	ft_free((void **)&line_read);

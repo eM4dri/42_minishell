@@ -6,17 +6,18 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/05 22:23:47 by jvacaris          #+#    #+#             */
-/*   Updated: 2021/12/31 12:44:26 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:32:01 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-/*
-* This function recieves a list of strings (pointer to pointers) and frees
-* everything, including the main pointer. The last string must be NULL.
-*/
-void	megafree(char ***list)
+/**
+ * * This function recieves a list of strings (pointer to pointers) and frees
+ * * everything, including the main pointer. The last string must be NULL.
+ * @param list		array to free
+**/
+void	array_str_free(char ***list)
 {
 	int	a;
 

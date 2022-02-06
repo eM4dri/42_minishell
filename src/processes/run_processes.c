@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 16:39:42 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/05 14:01:15 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:30:52 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ static void	create_processes(t_p *process, int p_count, char **envp)
 		}
 		process = process->next;
 	}
-	megafree(&envp);
+	array_str_free(&envp);
 	close_processes(p_count, pids, fds);
 	exit(g_var.current_status);
 }

@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 00:43:55 by jvacaris          #+#    #+#             */
-/*   Updated: 2022/02/05 10:51:30 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:30:52 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,44 +108,6 @@ char			*close_quotes_pipedfork(char *str_got_old);
 void			get_heredoc_list(char **input, t_str **heredoc_list);
 char			*get_heredoc_pipedfork(const char *key);
 
-//		old / exec_command.c
-//// void	exec_command(char **list, char **envp);
-
-//		interpreter.c
-//// void	interpreter(char **list, t_str **env_list);
-
-//		old / modifsplit.c
-//// int		ft_modstrcpy(char *orgn, char **end, int len);
-//// char	**modifsplit(char *input);
-
-//		old / old_var_expansor.c
-//// char	*getvarvalue(char *str);
-//// void	expand_var(char *orgn, char **end, int *a, int *b);
-//// void	dollarfound_getlen(int *a, int *count, char *input);
-//// char	*recursive_expand(char *str, t_str **env_list);
-
-//		old / ft_modstrcmp.c
-//// int		modstrcmp(char *str1, char *str2);
-
-//		old / command_sorter.c
-//// void	new_exec_command(t_red *red_node, char **env, int bool_addexit);
-//// void	command_sorter_no_pipes(t_red *red_node, 
-//// char **env, int fdi, int fdo);
-//// void	command_sorter_wth_pipes(t_red *red_node, char **env, int fdi);
-
-//		old / heredoc.c
-//// void			ft_heredoc_qm(int *fdi, char *last_line, int orig_fds[2]);
-//// void			ft_heredoc(int *fdi, char *last_line, int orig_fds[2]);
-
-//		old / new_redirections.c
-//// void			new_redirections(char **list, t_str **env_list)
-
-//		old / lst_red_handler.c
-//// void			lst_red_add_front(t_red **list, t_red *new);
-//// void			lst_red_add_back(t_red **list, t_red *new);
-//// t_red			*lst_red_new(void);
-//// void			lst_red_free(t_red **list);
-//// void			lst_red_print(t_red *list);
 
 //*		processes / get_processes.c
 void			get_processes(char **tokens, t_p **processes);
@@ -170,19 +132,8 @@ void			ft_search_word(char *to_find, char **sleep_argv);
 //*		utils / error_handler3.c
 void			translate_number(int nbr, char **sleep_argv);
 
-//*		utils / ft_is_it_directory.c
-int				ft_is_directory(const char *path);
 
-//*		utils / ft_strslashjoin.c
-char			*ft_strslashjoin(char const *s1, char const *s2);
 
-//*		utils / is_it_path.c
-int				is_it_path(char *str);
-
-//*		utils / is_valid_var.c
-//// int				is_valid_var(char prv_char, char curr_char,
-//// char nxt_char, char qm);
-//// int				is_valid_var_hd(char *str, int idx);
 
 //*		utils / lst_process_handler.c
 void			lst_process_add_front(t_p **list, t_p *new);
@@ -211,7 +162,7 @@ t_str			*lst_str_get_str(t_str **list, const char *str);
 char			**lst_str_to_array(t_str **list);
 
 //*		utils / megafree.c
-void			megafree(char ***list);
+void			array_str_free(char ***list);
 void			array_str_print(char **array);
 int				array_str_get_size(char **array);
 
@@ -235,7 +186,8 @@ int				has_pipe_redir_open(char **array);
 int				has_token(const char *input);
 
 //*		get_path.c
-char			*new_getpath(char *raw_cmd);
+char			*get_path(const char *raw_cmd);
+int				ft_is_directory(const char *path);
 
 //*		minishell1.c
 //?		(main)

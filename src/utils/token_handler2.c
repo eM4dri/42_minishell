@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/02 16:56:38 by emadriga          #+#    #+#             */
-/*   Updated: 2022/01/26 00:46:32 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/05 16:21:39 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int	eval_token_non_redir(const char *token)
 	!ft_strcmp(token, "export") || !ft_strcmp(token, "pwd") || \
 	!ft_strcmp(token, "unset"))
 		return (BUILTIN);
-	path = new_getpath((char *)token);
+	path = get_path((char *)token);
 	if (path != NULL)
 	{
 		free(path);

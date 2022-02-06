@@ -6,7 +6,7 @@
 #    By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 19:44:26 by emadriga          #+#    #+#              #
-#    Updated: 2022/02/05 11:06:53 by emadriga         ###   ########.fr        #
+#    Updated: 2022/02/06 11:08:18 by emadriga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,6 @@ SRC_FILES	= 	minishell.c							\
 				builtins/env.c						\
 				utils/lst_str_handler.c				\
 				utils/lst_str_handler2.c			\
-				utils/ft_strslashjoin.c				\
-				utils/is_it_path.c					\
 				utils/megafree.c					\
 				utils/quote_mark_handler.c			\
 				utils/lst_redir_handler.c			\
@@ -49,7 +47,6 @@ SRC_FILES	= 	minishell.c							\
 				utils/error_handler.c				\
 				utils/error_handler2.c				\
 				utils/error_handler3.c				\
-				utils/ft_is_directory.c				\
 				utils/token_handler.c				\
 				utils/token_handler2.c				\
 				utils/signal_handler.c				\

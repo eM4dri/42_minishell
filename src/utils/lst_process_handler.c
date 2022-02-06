@@ -81,7 +81,7 @@ void	lst_process_free(t_p **list)
 		if (aux->pathname != NULL)
 			free(aux->pathname);
 		if (aux->argv != NULL)
-			megafree(&aux->argv);
+			array_str_free(&aux->argv);
 		if (aux->redir != NULL)
 			lst_redir_free(&aux->redir);
 		if (aux->args != NULL)

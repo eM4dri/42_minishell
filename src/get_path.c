@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_path.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvacaris <jvacaris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:18:24 by jvacaris          #+#    #+#             */
-/*   Updated: 2022/01/29 18:05:53 by jvacaris         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:30:52 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,65 +18,112 @@
 #define PERM_DENIED "{0}: Permission denied\n"
 #define FILE_NOT_FOUND "{0}: No such file or directory\n"
 
-/*
-?   (Continuación de la función de abajo)
-*/
-static char	*new_get_command_path(char *command)
+static char	*ft_strslashjoin(char const *s1, char const *s2)
 {
-	int		idx;
-	char	*str_att;
-	char	*paths;
-	char	**path_list;
+	char	*join;
+	size_t	len;
 
-	idx = 0;
-	paths = ft_getenv(LITERAL_PATH);
-	if (!paths[0])
-	{
-		log_error(PATH_NOT_FOUND, 1);
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	}
-	path_list = ft_split(paths, ':');
-	while (path_list[idx])
-	{
-		str_att = ft_strslashjoin(path_list[idx++], command);
-		if (!access(str_att, X_OK))
-			break ;
-		free(str_att);
-		str_att = NULL;
-	}
-	megafree(&path_list);
-	if (str_att == NULL)
-		log_error_free(ft_strreplace(COMMAND_NOT_FOUND, "{0}", command), 127);
-	return (str_att);
+	len = ft_strlen(s1) + ft_strlen(s2) + 2;
+	join = ft_calloc(sizeof(char), len);
+	if (!join)
+		return (0);
+	ft_strlcat(join, s1, len);
+	ft_strlcat(join, "/", len);
+	ft_strlcat(join, s2, len);
+	return (join);
 }
 
-/*
-?   Esta función te saca el path correcto para el comando que le pasas.
-?   Si le pasas la dirección a un ejecutable, te devuelve esa misma
-?   dirección malloqueada.
-*/
-char	*new_getpath(char *raw_cmd)
+/**
+* *	Checks if a given string has a path format 
+* * A str has path format when contains '/'	or it's composed of a single '~')
+ * @param str
+**/
+static int	has_path_format(const char *str)
 {
-	if (is_it_path(raw_cmd))
+	int	a;
+
+	a = 0;
+	while (str[a])
+	{
+		if (str[a] == '/')
+			return (TRUE);
+		a++;
+	}
+	if (a == 1 && str[0] == '~')
+		return (TRUE);
+	return (FALSE);
+}
+
+/**
+ * * Gets path from a given command
+ * @param command	commmand to look for
+ * @param path		env's path
+**/
+static char	*get_command_path(const char *command, const char	*path)
+{
+	int		idx;
+	char	**path_list;
+	char	*result;
+
+	idx = 0;
+	path_list = ft_split(path, ':');
+	while (path_list[idx])
+	{
+		result = ft_strslashjoin(path_list[idx++], command);
+		if (!access(result, X_OK))
+			break ;
+		free(result);
+		result = NULL;
+	}
+	array_str_free(&path_list);
+	if (result == NULL)
+		log_error_free(ft_strreplace(COMMAND_NOT_FOUND, "{0}", command), 127);
+	return (result);
+}
+
+
+/**
+ * * Gets path from a given command
+ * @param raw_cmd	posible command to process
+**/
+char	*get_path(const char *raw_cmd)
+{
+	char	*path;
+
+	if (has_path_format(raw_cmd) == TRUE)
 	{
 		if (access(raw_cmd, F_OK))
-		{
 			log_error_free(ft_strreplace(FILE_NOT_FOUND, "{0}", raw_cmd), 127);
-			g_var.current_status = 127;
-		}
 		else if (!ft_is_directory(raw_cmd))
-		{
 			log_error_free(ft_strreplace(IS_DIRECTORY, "{0}", raw_cmd), 126);
-			g_var.current_status = 126;
-		}
 		else if (access(raw_cmd, X_OK))
-		{
 			log_error_free(ft_strreplace(PERM_DENIED, "{0}", raw_cmd), 126);
-			g_var.current_status = 126;
-		}
 		else
 			return (ft_strdup(raw_cmd));
 		return (NULL);
 	}
-	return (new_get_command_path(raw_cmd));
+	path = ft_getenv(LITERAL_PATH);
+	if (!*path)
+	{
+		log_error(PATH_NOT_FOUND, 1);
+		return (NULL);
+	}
+	return (get_command_path(raw_cmd, path));
+}
+
+/**
+* *	This function checks whether a given path corresponds to a file or
+* *	a directory. Return values:
+* ?	1 if the path corresponds to a file.
+* ?	0 if the path corresponds to a directory.
+* @param path		path
+**/
+int	ft_is_directory(const char *path)
+{
+	struct stat	path_stat;
+
+	stat(path, &path_stat);
+	return (S_ISREG(path_stat.st_mode));
 }
