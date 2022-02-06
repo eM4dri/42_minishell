@@ -24,26 +24,26 @@ ToDo
 - [x] Export should return list orderder
 - [x] Export dont allow start with every char like number or symbols
 - [x] Unificar entradas para Builtins
-- [ ] Gestionar correctamente ERNO
+- [x] Gestionar correctamente ERNO
 - [x] Gestionar señales en procesos hijos (open heredocs)
 - [x] Hacer Env global a todas las funciones
 - [x] Sacar expandir variables de la entrada
 - [x] Test redirection functions
-- [ ] Use enumerables for status like philoforks ex(FREE, NOT_FREE, KO, OK) wacht out literas alredy in use like NEWLINE
+- [x] Use enumerables for status like philoforks ex(FREE, NOT_FREE, KO, OK) wacht out literas alredy in use like NEWLINE
 - [x] Handle heredoc before everything else
 - [x] Use forks and signals to handle heredocs and unclosed quotes
-- [ ] Review exit_status on ft_exit -> test several arguments (1st Number)
-- [ ] ft_exit return exit\n as exit
-- [ ] control is directory on searching cmd
-- [ ] rand into execve_random
-- [ ] control if bash (sleep & rands) exits
-- [ ] control \ on heredocs
-- [ ] eval heredocs with hello $hi "$hi" '$hi'  & he""llo $hi "$hi" '$hi'
+- [x] Review exit_status on ft_exit -> test several arguments (1st Number)
+- [x] ft_exit return exit\n as exit
+- [x] control is directory on searching cmd
+- [x] rand into execve_random
+- [x] control if bash (sleep & rands) exits
+- [x] control \ on heredocs
+- [x] eval heredocs with hello $hi "$hi" '$hi'  & he""llo $hi "$hi" '$hi'
 
-- [ ] expanse tilde (https://unix.stackexchange.com/questions/423962/what-is-a-tilde-when-used-as-a-prefix-to-a-path/423984?noredirect=1#comment763846_423984
+- [x] expanse tilde (https://unix.stackexchange.com/questions/423962/what-is-a-tilde-when-used-as-a-prefix-to-a-path/423984?noredirect=1#comment763846_423984
  					https://www.gnu.org/software/bash/manual/html_node/Tilde-Expansion.html#:~:text=If%20a%20word%20begins%20with,are%20considered%20a%20tilde%2Dprefix%20.&text=If%20this%20login%20name%20is,of%20the%20HOME%20shell%20variable)
-- [ ] create execve random
-- [ ] create fallback for execve sleep & random
+- [x] create execve random
+- [x] create fallback for execve sleep & random
 Test parser.c aas basfbaskfhbsajhb ||| <<< >>> as|da>sa<s>>asf<<asdfd
 test ft_recursive_expand sasdfsad$USER fas'd$TE'RM fasdfsadfsdf
 
