@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 00:43:14 by jvacaris          #+#    #+#             */
-/*   Updated: 2022/01/21 23:25:55 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:55:08 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void	aqr_filler(char *qm_str, char **result)
 	}
 }
 
-char	*adv_qm_rem(char *qm_str, int b_free)
+char	*remove_quotes(char *qm_str, int b_free)
 {
 	char	*result;
 	int		less_chars;

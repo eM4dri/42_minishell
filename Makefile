@@ -6,7 +6,7 @@
 #    By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 19:44:26 by emadriga          #+#    #+#              #
-#    Updated: 2022/02/06 11:08:18 by emadriga         ###   ########.fr        #
+#    Updated: 2022/02/06 12:25:21 by emadriga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,38 +30,39 @@ RLINE_L		= -lreadline -L /Users/$(USER)/.brew/opt/readline/lib
 
 # Header files
 INCLUDES_FILES =	constants.h		\
-					minishell.h
+					minishell.h		\
+					errors.h
 
 # Source and object files
-SRC_FILES	= 	minishell.c							\
-				expansions/var_expansor.c			\
-				expansions/var_expansor2.c			\
-				get_path.c							\
-				builtins/env.c						\
-				utils/lst_str_handler.c				\
-				utils/lst_str_handler2.c			\
-				utils/megafree.c					\
-				utils/quote_mark_handler.c			\
-				utils/lst_redir_handler.c			\
-				utils/lst_process_handler.c			\
-				utils/error_handler.c				\
-				utils/error_handler2.c				\
-				utils/error_handler3.c				\
-				utils/token_handler.c				\
-				utils/token_handler2.c				\
-				utils/signal_handler.c				\
-				forks/close_quotes.c				\
-				forks/heredoc_handler.c				\
-				processes/get_processes.c			\
-				processes/process_redirections.c	\
-				processes/run_processes.c			\
+SRC_FILES	= 	main.c								\
 				builtins/builtins.c					\
 				builtins/cd.c						\
+				builtins/env.c						\
 				builtins/echo.c						\
 				builtins/exit.c						\
 				builtins/export.c					\
 				builtins/pwd.c						\
-				builtins/unset.c
+				builtins/unset.c					\
+				errors/error_handler.c				\
+				errors/error_handler2.c				\
+				errors/error_handler3.c				\
+				expansions/var_expansor.c			\
+				expansions/var_expansor2.c			\
+				heredocs/heredoc_handler.c			\
+				paths/get_path.c					\
+				processes/get_processes.c			\
+				processes/process_redirections.c	\
+				processes/run_processes.c			\
+				quotes/close_quotes.c				\
+				quotes/quote_mark_handler.c			\
+				signals/signal_handler.c			\
+				tokens/token_handler.c				\
+				tokens/token_handler2.c				\
+				utils/array_str_handler.c			\
+				utils/lst_str_handler.c				\
+				utils/lst_str_handler2.c			\
+				utils/lst_redir_handler.c			\
+				utils/lst_process_handler.c
 
 OBJ_FILES	= $(SRC_FILES:.c=.o)
 
@@ -85,11 +86,16 @@ all: obj $(LIBFT) $(NAME)
 
 obj:
 	@mkdir -p $(OBJ_DIR)
-	@mkdir -p $(OBJ_DIR)utils/
 	@mkdir -p $(OBJ_DIR)builtins/
-	@mkdir -p $(OBJ_DIR)forks/
-	@mkdir -p $(OBJ_DIR)processes/
+	@mkdir -p $(OBJ_DIR)errors/
 	@mkdir -p $(OBJ_DIR)expansions/
+	@mkdir -p $(OBJ_DIR)heredocs/
+	@mkdir -p $(OBJ_DIR)paths/
+	@mkdir -p $(OBJ_DIR)processes/
+	@mkdir -p $(OBJ_DIR)quotes/
+	@mkdir -p $(OBJ_DIR)signals/
+	@mkdir -p $(OBJ_DIR)tokens/
+	@mkdir -p $(OBJ_DIR)utils/
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c $(INCLUDES)
 	@$(GCC) $(FLAGS) -I $(LIBFT_DIR) -I $(INC_DIR) $(RLINE_INC) -o $@ -c $<
 $(LIBFT):

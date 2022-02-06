@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/15 11:08:30 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/06 11:30:52 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:55:08 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int type_redir)
 			r->go_to = ft_strdup(token);
 		else
 		{
-			no_quotes_token = adv_qm_rem((char *)token, NOT_FREE);
+			no_quotes_token = remove_quotes((char *)token, NOT_FREE);
 			r->go_to = get_heredoc_pipedfork(no_quotes_token);
 			if (!ft_strcmp(r->go_to, no_quotes_token))
 				g_var.current_status = 130;
@@ -86,7 +86,7 @@ static void	add_exec_info_to_process(const char *token, t_p *process)
 {
 	char	*str;
 
-	str = adv_qm_rem(ft_expand(token), FREE);
+	str = remove_quotes(ft_expand(token), FREE);
 	if (process->type != NONE)
 		lst_str_add_back(&process->args, str);
 	else

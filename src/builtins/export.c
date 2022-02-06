@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 20:42:55 by emadriga          #+#    #+#             */
-/*   Updated: 2022/01/23 21:50:36 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/06 11:55:08 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void	ft_export(char **argv)
 	{
 		if (is_valid_add_export(argv[i]))
 		{
-			argv_without_qm = adv_qm_rem(argv[i], NOT_FREE);
+			argv_without_qm = remove_quotes(argv[i], NOT_FREE);
 			ft_export_add(&g_var.env, argv_without_qm);
 		}
 		i++;
