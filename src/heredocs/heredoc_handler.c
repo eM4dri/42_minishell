@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc_handler.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvacaris <jvacaris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 20:13:37 by emadriga          #+#    #+#             */
-/*   Updated: 2022/01/30 19:14:00 by jvacaris         ###   ########.fr       */
+/*   Updated: 2022/02/06 13:06:20 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 #define WARNING_HEREDOC_EOF "Minishell: warning: here-document at line %d \
 delimited by end-of-file (wanted `%s')\n"
 
+/**
+ * * Get line_read from readline to process on heredoc
+ * @param key	key to match with STDIN_FILENO
+*/
 static char	*get_readline_heredoc(const char *key)
 {
 	char	*line_read;

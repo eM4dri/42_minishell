@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 16:17:59 by jvacaris          #+#    #+#             */
-/*   Updated: 2022/01/29 17:39:26 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/06 17:04:35 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,11 @@
 #define EXPAND_PWD "$PWD"
 #define EXPAND_OLDPWD "$OLDPWD"
 
+/**
+ * * Given str expand character tilde (~) to their value
+ * @param str			str to expand it content
+ * @return				str expanded
+*/
 char	*expanse_tilde(const char *str)
 {
 	char	*aux;

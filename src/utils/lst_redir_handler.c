@@ -84,7 +84,8 @@ void	lst_redir_free(t_redirection **list)
 }
 
 /**
- * * Returns malloced node
+ * * Print list
+ * @param list
 */
 void	lst_redir_print(t_redirection *list)
 {

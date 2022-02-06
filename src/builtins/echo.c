@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jvacaris <jvacaris@student.42.fr>          +#+  +:+       +#+        */
+/*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 00:26:58 by jvacaris          #+#    #+#             */
-/*   Updated: 2022/01/29 17:10:00 by jvacaris         ###   ########.fr       */
+/*   Updated: 2022/02/06 12:39:33 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,31 +36,32 @@ static int	check_for_flag(char *str)
 	return (0);
 }
 
-/*
- * This should recreate the bash funtion "echo".
+/**
+ * * This should recreate the bash funtion "echo".
+ * @param list	vector of arguments containing records to echoed
 */
-void	ft_echo(char **list)
+void	ft_echo(char **argv)
 {
 	int		n_flag;
 	int		idx;
 
 	n_flag = 0;
 	idx = 1;
-	if (list[idx] == NULL)
+	if (argv[idx] == NULL)
 	{
 		write(1, "\n", 1);
 		return ;
 	}
 	while (1)
 	{
-		if (!check_for_flag(list[idx]))
+		if (!check_for_flag(argv[idx]))
 			break ;
 		idx++;
 		n_flag = 1;
-		if (!list[idx])
+		if (!argv[idx])
 			break ;
 	}
-	ft_echo_writing(list, idx);
+	ft_echo_writing(argv, idx);
 	if (!n_flag)
 		write(1, "\n", 1);
 }

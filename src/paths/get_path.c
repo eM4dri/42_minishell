@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:18:24 by jvacaris          #+#    #+#             */
-/*   Updated: 2022/02/06 11:30:52 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/06 17:28:22 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ static char	*get_command_path(const char *command, const char	*path)
 	return (result);
 }
 
-
 /**
  * * Gets path from a given command
  * @param raw_cmd	posible command to process
@@ -114,11 +113,9 @@ char	*get_path(const char *raw_cmd)
 }
 
 /**
-* *	This function checks whether a given path corresponds to a file or
-* *	a directory. Return values:
-* ?	1 if the path corresponds to a file.
-* ?	0 if the path corresponds to a directory.
+* *	Checks whether a given path corresponds to file or directory
 * @param path		path
+* @return			FILE 1/DIRECTORY 0
 **/
 int	ft_is_directory(const char *path)
 {

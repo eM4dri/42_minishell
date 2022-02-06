@@ -6,7 +6,7 @@
 #    By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 19:44:26 by emadriga          #+#    #+#              #
-#    Updated: 2022/02/06 12:25:21 by emadriga         ###   ########.fr        #
+#    Updated: 2022/02/06 17:07:39 by emadriga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,9 +29,19 @@ RLINE_INC	= -I/Users/$(USER)/.brew/opt/readline/include
 RLINE_L		= -lreadline -L /Users/$(USER)/.brew/opt/readline/lib
 
 # Header files
-INCLUDES_FILES =	constants.h		\
-					minishell.h		\
-					errors.h
+INCLUDES_FILES =	constants.h				\
+					minishell.h				\
+					dtos.h					\
+					functions/errors.h		\
+					functions/builtins.h	\
+					functions/expansions.h	\
+					functions/heredocs.h	\
+					functions/paths.h		\
+					functions/processes.h	\
+					functions/quotes.h		\
+					functions/signals.h		\
+					functions/tokens.h		\
+					functions/utils.h
 
 # Source and object files
 SRC_FILES	= 	main.c								\

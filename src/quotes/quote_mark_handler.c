@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 00:43:14 by jvacaris          #+#    #+#             */
-/*   Updated: 2022/02/06 11:55:08 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/06 16:01:59 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,13 @@ static void	aqr_filler(char *qm_str, char **result)
 	}
 }
 
+/**
+* * Remove quotes from a str given
+* * str can be freed if needed
+* @param qm_str	str to process
+* @param b_free	boolean handle str free
+* @return 		str with quotes removed
+*/
 char	*remove_quotes(char *qm_str, int b_free)
 {
 	char	*result;
@@ -100,6 +107,7 @@ char	*remove_quotes(char *qm_str, int b_free)
 * * This function detects if there's quotation marks unclosed through the input
 * * given. Quotation marks inside other types of quotation marks are excluded.
 * * If all goes well, the value 0 is returned.
+* @param str	str to process
 * @return 		ERNNO code is returnerd
 */
 int	qm_error_detector(char *str)

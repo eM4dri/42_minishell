@@ -94,7 +94,8 @@ void	lst_process_free(t_p **list)
 }
 
 /**
- * * Returns malloced node
+ * * Print list
+ * @param list
 */
 void	lst_process_print(t_p *list)
 {
