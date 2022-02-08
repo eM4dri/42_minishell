@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 16:39:42 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/08 14:40:07 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/08 21:44:15 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,15 @@ static void	close_processes(int p_count, pid_t *pids, t_fd *fds)
 {
 	int		status;
 	int		i;
-	int		j;
 
 	i = -1;
-	while (++i < p_count)
+	while (++i < p_count - 1)
 	{
-		j = -1;
-		while (++j < p_count - 1)
-		{
-			close(fds[j].fd[READ_END]);
-			close(fds[j].fd[WRITE_END]);
-		}
+		close(fds[i].fd[READ_END]);
+		close(fds[i].fd[WRITE_END]);
 		waitpid(pids[i], &status, 0);
 	}
+	waitpid(pids[i], &status, 0);
 	if (WIFEXITED(status))
 		g_var.current_status = WEXITSTATUS(status);
 	else if (WIFSIGNALED(status))
@@ -106,17 +102,16 @@ static void	create_processes(t_p *process, int p_count, char **envp)
 	while (++i < p_count)
 	{
 		pids[i] = fork();
-		signal_handler_forks(!pids[i]);
 		if (pids[i] == 0)
 		{
+			signal(SIGINT, SIG_DFL);
+			signal(SIGQUIT, SIG_DFL);
 			init_process(process, p_count, fds, i);
 			run_process(process, envp);
 		}
 		process = process->next;
 	}
-	array_str_free(&envp);
 	close_processes(p_count, pids, fds);
-	exit(g_var.current_status);
 }
 
 /**
@@ -126,9 +121,9 @@ static void	create_processes(t_p *process, int p_count, char **envp)
 */
 void	run_processes(t_p **processes, int p_count)
 {
-	pid_t	pid;
-	int		status;
+	char	**envp;
 
+	envp = NULL;
 	if (p_count != 0 && *processes != NULL)
 	{
 		if (p_count == 1 && processes[0]->type == BUILTIN \
@@ -139,14 +134,9 @@ void	run_processes(t_p **processes, int p_count)
 		}
 		else
 		{
-			pid = fork();
-			signal_handler_forks(!pid);
-			if (pid == 0)
-				create_processes(*processes, p_count, \
-								lst_str_to_array(&g_var.env));
-			waitpid(pid, &status, 0);
-			if (WIFEXITED(status))
-				g_var.current_status = WEXITSTATUS(status);
+			envp = lst_str_to_array(&g_var.env);
+			create_processes(*processes, p_count, envp);
+			array_str_free(&envp);
 		}
 	}
 }

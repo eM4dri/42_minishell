@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 19:58:37 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/08 14:41:02 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/08 21:43:12 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,9 @@ static void	signal_handler_default_sigint(int signal)
 void	signal_handler_forks(int is_child)
 {
 	if (is_child == TRUE)
-	{
 		signal(SIGINT, SIG_DFL);
-		signal(SIGQUIT, SIG_DFL);
-	}
 	else
-	{
 		signal(SIGINT, SIG_IGN);
-		signal(SIGQUIT, SIG_IGN);
-	}
 }
 
 /**
