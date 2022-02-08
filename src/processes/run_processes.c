@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 16:39:42 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/08 21:44:15 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/08 22:02:56 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,9 +102,9 @@ static void	create_processes(t_p *process, int p_count, char **envp)
 	while (++i < p_count)
 	{
 		pids[i] = fork();
+		signal_handler_forks(!pids[i]);
 		if (pids[i] == 0)
 		{
-			signal(SIGINT, SIG_DFL);
 			signal(SIGQUIT, SIG_DFL);
 			init_process(process, p_count, fds, i);
 			run_process(process, envp);
