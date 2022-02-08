@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/05 19:58:37 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/05 14:01:38 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:41:02 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,4 @@ void	signal_handler_process_sigint(int signal)
 		ft_putstr_fd(SIGQUIT_MSG, STDOUT_FILENO);
 		ft_putstr_fd("\n", STDOUT_FILENO);
 	}
-	exit(g_var.current_status);
 }

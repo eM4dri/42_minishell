@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/22 16:39:42 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/06 11:30:52 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:40:07 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static void	close_processes(int p_count, pid_t *pids, t_fd *fds)
 	if (WIFEXITED(status))
 		g_var.current_status = WEXITSTATUS(status);
 	else if (WIFSIGNALED(status))
-		g_var.current_status = WTERMSIG(status);
+		signal_handler_process_sigint(status);
 	free(pids);
 	free(fds);
 }
@@ -106,8 +106,7 @@ static void	create_processes(t_p *process, int p_count, char **envp)
 	while (++i < p_count)
 	{
 		pids[i] = fork();
-		signal(SIGINT, &signal_handler_process_sigint);
-		signal(SIGQUIT, &signal_handler_process_sigint);
+		signal_handler_forks(!pids[i]);
 		if (pids[i] == 0)
 		{
 			init_process(process, p_count, fds, i);
@@ -141,15 +140,13 @@ void	run_processes(t_p **processes, int p_count)
 		else
 		{
 			pid = fork();
-			signal_handler_forks(pid);
+			signal_handler_forks(!pid);
 			if (pid == 0)
 				create_processes(*processes, p_count, \
 								lst_str_to_array(&g_var.env));
 			waitpid(pid, &status, 0);
 			if (WIFEXITED(status))
 				g_var.current_status = WEXITSTATUS(status);
-			else if (WIFSIGNALED(status))
-				g_var.current_status = WTERMSIG(status);
 		}
 	}
 }
