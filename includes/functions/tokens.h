@@ -6,12 +6,13 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 13:33:49 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/06 16:08:31 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:15:15 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TOKENS_H
 # define TOKENS_H
+
 /**
  * * Returns token non redir type
  * @param token	token to identify

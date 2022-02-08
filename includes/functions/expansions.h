@@ -6,12 +6,13 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 12:56:49 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/06 13:32:02 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:15:40 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef EXPANSIONS_H
 # define EXPANSIONS_H
+
 /**
  * * Given str expand character tilde (~) to their value
  * @param str			str to expand it content

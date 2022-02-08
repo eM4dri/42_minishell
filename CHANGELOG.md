@@ -5,6 +5,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2022-02-08 - Edu
+### Fixed
+- Fix norm problems on headers
+- Fix Signal handling on processes
+
 ## 2022-02-06 - Edu
 ### Added
 - Add functions descriptions on headers
@@ -21,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 - CTRL+ C set error
-- ft_exit accept negatives 
+- ft_exit accept negatives
 
 ## 2022-01-31 - Edu
 ### Changed

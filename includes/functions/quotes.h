@@ -6,12 +6,13 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 15:53:38 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/06 16:00:32 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:15:35 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef QUOTES_H
 # define QUOTES_H
+
 /**
  * * Piped fork to handle unclosed quotes with signals without shuting MS
  * * child refresh input str with new STDIN_FILENO input

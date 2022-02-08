@@ -6,13 +6,14 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 13:13:59 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/06 13:31:39 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:15:57 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PROCESSES_H
 # define PROCESSES_H
 # include "dtos.h"
+
 /**
  * * Returns processes to handle with pipes
  * * Every process has needed info to execute later
@@ -21,7 +22,7 @@
 */
 void	get_processes(char **tokens, t_p **processes);
 /**
- * * Handle process redirections 
+ * * Handle process redirections
  * @param r		process redirection
 */
 void	process_redirections(t_redirection *r);

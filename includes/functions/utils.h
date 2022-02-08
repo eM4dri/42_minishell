@@ -6,13 +6,14 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 13:16:11 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/06 13:31:49 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:15:26 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef UTILS_H
 # define UTILS_H
 # include "dtos.h"
+
 /**
  * * This function recieves a list of strings (pointer to pointers) and frees
  * * everything, including the main pointer. The last string must be NULL.

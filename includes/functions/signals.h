@@ -6,12 +6,13 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 13:41:51 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/06 13:53:38 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:16:12 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SIGNALS_H
 # define SIGNALS_H
+
 /**
  * * Handles signals at forks, different behaviour between father and children
  * @param is_child	bool process is children

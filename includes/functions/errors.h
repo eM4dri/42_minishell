@@ -6,12 +6,13 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 12:29:07 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/06 13:01:39 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:16:18 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ERRORS_H
 # define ERRORS_H
+
 /**
  * * Log error into STDERR_FILENO & set catched status error
  * @param str_error		Error to log into STDERR_FILENO
