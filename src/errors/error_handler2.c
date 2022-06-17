@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 18:17:46 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/06 11:30:52 by emadriga         ###   ########.fr       */
+/*   Updated: 2022/06/17 23:46:32 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ enjoy...\r"
 #define ELEPHANT_SONG " went out to play... \r\
 \tupon a spiders web one day... \r\tthey had such enormous fun... \r\
 \tthat they called for another elephant to come... \r"
-#define SLEEP_ARGS "/bin/sleep|sleep|0.006"
+#define SLEEP_ARGS "/bin/sleep|sleep|0.02"
 #define EMOJIS " |🐘 |🎵 |🕷️ |🕸️ |🎉 |😛 |🤣 "
 #define ERASE_LINE "\033[K"
 #define MASK_COLOR_FOREGROUND "\033[9{0}m"
