@@ -6,7 +6,7 @@
 #    By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/07/17 19:44:26 by emadriga          #+#    #+#              #
-#    Updated: 2022/02/06 17:07:39 by emadriga         ###   ########.fr        #
+#    Updated: 2022/06/17 23:41:11 by emadriga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,12 +17,11 @@ NAME	= minishell
 GCC		= clang
 
 # compiling flags
-FLAGS	= -Wall -Wextra -Werror $(SANITIZE) -pedantic
+FLAGS	= -Wall -Wextra -Werror -Ofast $(SANITIZE) -pedantic
 
 # sanitize
-# SANITIZE =
-# SANITIZE = -g3 -fsanitize=address
-SANITIZE = -Ofast -fsanitize=address
+SANITIZE = 
+# SANITIZE = -fsanitize=address
 
 # readline doing readliney things
 RLINE_INC	= -I/Users/$(USER)/.brew/opt/readline/include
