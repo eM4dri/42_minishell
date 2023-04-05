@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/03 08:19:36 by emadriga          #+#    #+#             */
-/*   Updated: 2022/01/31 09:05:15 by emadriga         ###   ########.fr       */
+/*   Updated: 2023/04/05 14:35:34 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@ enum e_quotes_status
 	DOUBLE
 };
 
-enum e_bool
+typedef enum e_bool
 {
 	FALSE,
 	TRUE
-};
+}t_bool;
 
 enum e_pipe_fd
 {

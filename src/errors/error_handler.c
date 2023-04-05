@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/29 17:13:58 by jvacaris          #+#    #+#             */
-/*   Updated: 2022/01/31 15:29:11 by emadriga         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:58:53 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 #define MS_ERROR "Minishell: "
 #define ULTIMATE_QUESTION_LIFE_ANSWER 42
+#define PATHSLEEP "/bin/sleep"
+#define SLEEP_EXE "sleep"
+#define SLEEP_TIME "0.02"
 
 /**
  * * Log error into STDERR_FILENO & set catched status error
@@ -39,14 +42,18 @@ void	log_error_free(char *malloc_str_error, int status_error)
 	free(malloc_str_error);
 }
 
-void	execve_sleep(char **sleep_argv)
+void	execve_sleep(void)
 {
+	char	*sleep_argv[3];
 	pid_t	pid;
 	int		status;
 
+	sleep_argv[0] = SLEEP_EXE;
+	sleep_argv[1] = SLEEP_TIME;
+	sleep_argv[2] = NULL;
 	pid = fork();
 	if (pid == 0)
-		execve(sleep_argv[0], &sleep_argv[1], NULL);
+		execve(PATHSLEEP, sleep_argv, NULL);
 	waitpid(pid, &status, 0);
 }
 

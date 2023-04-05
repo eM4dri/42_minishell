@@ -6,7 +6,7 @@
 /*   By: emadriga <emadriga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/06 12:29:07 by emadriga          #+#    #+#             */
-/*   Updated: 2022/02/08 14:16:18 by emadriga         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:49:00 by emadriga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	log_error_free(char *malloc_str_error, int status_error);
 int		count_pipes(char **tokens);
 
 int		ft_rand_eight_module(const char *str);
-void	execve_sleep(char **sleep_argv);
+void	execve_sleep(void);
 int		max_pipes_exceeded(char **tokens);
-void	ft_search_word(char *to_find, char **sleep_argv);
-void	translate_number(int nbr, char **sleep_argv);
+void	ft_search_word(char *to_find);
+void	translate_number(int nbr);
 #endif
